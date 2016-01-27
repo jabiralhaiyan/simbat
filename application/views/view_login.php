@@ -134,9 +134,9 @@
                                 <label class="left">Perguruan Tinggi<span class="required">*</span></label>
                                 <select class="form-control" name="inputPTN" required="required" >
                                     <option>--Pilih PTN--</option>
-                                    <option>ITS</option>
-                                    <option>PENS</option>
-                                    <option>PPNS</option>
+                                    <?php foreach ($PTN->result() as $row){ ?>
+                                        <option><?php echo $row->PTN ;?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <br>
@@ -145,17 +145,9 @@
                              <label class="left">Jurusan<span class="required">*</span></label>
                              <select class="form-control" name="inputJurusan" required="required">
                                 <option>--Pilih Jurusan--</option>
-                                <option>Surabaya</option>
-                                <option>Sidoarjo</option>
-                                <option>Mojokerto</option>
-                                <option>Malang</option>
-                                <option>Jember</option>
-                                <option>Madura</option>
-                                <option>Yogyakarta</option>
-                                <option>Semarang</option>
-                                <option>Solo</option>
-                                <option>Jakarta</option>
-                                <option>Bogor</option>
+                                <?php foreach ($Jurusan->result() as $row){ ?>
+                                    <option><?php echo $row->Jurusan ;?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <br>

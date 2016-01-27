@@ -12,7 +12,12 @@
 			$nrp = $this->session->userdata('nrp');
 			if ($nrp==false)
 			{
+				$this->load->model('JurusanPTN');
 				$notifikasi;
+				
+				$notifikasi['PTN'] = $this->JurusanPTN->getPTN(); //get PTN From Database
+				$notifikasi['Jurusan'] = $this->JurusanPTN->getJurusan(); //get Jurusan From Database
+
 				//pesan gagal
 				$notifikasi['nrp_kosong'] = $this->session->flashdata('nrp_kosong');
 				$notifikasi['password_kosong'] = $this->session->flashdata('password_kosong');
@@ -137,8 +142,8 @@
 				}
 				
 				$this->load->model('Sahabat');
-				$this->Sahabat->setNRP($this->input->post('inputnrp'));
-				$query = $this->Sahabat->getnrpFromDatabase();
+				$this->Sahabat->setNRP($this->input->post('inputNRP'));
+				$query = $this->Sahabat->getNRPFromDatabase();
 				if ($query->num_rows()>0)
 				{
 					$this->session->set_flashdata('nrp_sudah_ada','nrp sudah ada! Silahkan masukkan nrp lain');
